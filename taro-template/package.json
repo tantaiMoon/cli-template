@@ -1,0 +1,11 @@
+{
+  "name": "@moyi.rk/taro-template",
+  "version": "1.0.0",
+  "keywords": ["react", "vite", "taro"],
+  "author": "moyi",
+  "license": "ISC",
+  "description": "moyi cli Taro template",
+  "publishConfig": {
+    "access": "public"
+  }
+}

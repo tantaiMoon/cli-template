@@ -1,0 +1,128 @@
+version: '3.7'
+services:
+  ######### moyi-server
+  moyi-server:
+    image: moyi-be:latest
+    container_name: moyi-server
+    restart: always
+    ports:
+      - 8930:8930
+    environment:
+      - NODE_ENV=production
+      - APP_PORT=8930
+    volumes:
+      - ./.env:/app/.env
+      - ./.env.production:/app/.env.production
+    networks:
+      - moyi-be
+    depends_on:
+      - redis
+      - mysql1
+      - mysql2
+      - pg1
+      - pg2
+  ######### redis
+  redis:
+    image: bitnami/redis:latest
+    container_name: redis
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - /moyi/docker/reids_data:/bitnami/redis/data
+    environment:
+      - REDIS_PASSWORD=example
+    networks:
+      - moyi-be
+    #    command: ['redis-server', '--requirepass', 'example']
+  ############### mysql
+  mysql1:
+    image: mysql:8.0
+    container_name: mysql1
+    command:
+      #      --authentication-policy=mysql_native_password
+      --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+      #      - /Users/wen/Desktop/DataBases/mysql/db1/data:/var/lib/mysql
+      #      - /Users/wen/Desktop/DataBases/mysql/db1/mysql-files:/var/lib/mysql-files
+      #      - /Users/wen/Desktop/DataBases/mysql/db1/log:/var/log/mysql
+      - /moyi/docker/mysql/db1/data:/var/lib/mysql
+      - /moyi/docker/mysql/db1/mysql-files:/var/lib/mysql-files
+      - /moyi/docker/mysql/db1/log:/var/log/mysql
+    environment:
+      #      prod
+      MYSQL_ROOT_PASSWORD: example
+    networks:
+      - moyi-be
+
+  mysql2:
+    image: mysql:8.0
+    container_name: mysql2
+    command:
+      #      --authentication-policy=mysql_native_password
+      --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+      #      - /Users/wen/Desktop/DataBases/mysql/db2/data:/var/lib/mysql
+      #      - /Users/wen/Desktop/DataBases/mysql/db2/mysql-files:/var/lib/mysql-files
+      #      - /Users/wen/Desktop/DataBases/mysql/db2/log:/var/log/mysql
+      - /moyi/docker/mysql/db2/data:/var/lib/mysql
+      - /moyi/docker/mysql/db2/mysql-files:/var/lib/mysql-files
+      - /moyi/docker/mysql/db2/log:/var/log/mysql
+    environment:
+      #      prod
+      MYSQL_ROOT_PASSWORD: example
+    ports:
+      - 3308:3306
+    networks:
+      - moyi-be
+  ############## pg
+  pg1:
+    image: postgres
+    restart: always
+    container_name: pg1
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: db1
+      POSTGRES_USER: pguser
+    volumes:
+      #      - /Users/wen/Desktop/DataBases/postgres/pgdata1:/var/lib/postgresql/data
+      - /moyi/docker/postgres/pgdata1:/var/lib/postgresql/data
+      - ./pgdb.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5432:5432
+    networks:
+      - moyi-be
+
+  pg2:
+    image: postgres
+    restart: always
+    container_name: pg2
+    volumes:
+      - /moyi/docker/postgres/pgdata2:/var/lib/postgresql/data
+      - ./pgdb.sql:/docker-entrypoint-initdb.d/init.sql
+    #      - /Users/wen/Desktop/DataBases/postgres/pgdata2:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: db1
+      POSTGRES_USER: pguser
+    ports:
+      - 5431:5432
+    networks:
+      - moyi-be
+
+  ########## adminer 数据库管理
+  adminer:
+    image: adminer
+    restart: always
+    container_name: adminer
+    ports:
+      - 8080:8080
+    networks:
+      - moyi-be
+
+networks:
+  moyi-be:
+    driver: bridge
+

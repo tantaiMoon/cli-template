@@ -1,0 +1,11 @@
+{
+  "name": "@moyi.rk/template-react",
+  "version": "1.0.1",
+  "keywords": ["react", "cra"],
+  "author": "moyi",
+  "license": "ISC",
+  "description": "moyi cli react template",
+  "publishConfig": {
+    "access": "public"
+  }
+}

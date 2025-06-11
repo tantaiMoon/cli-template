@@ -1,0 +1,11 @@
+{
+  "name": "@moyi.rk/template-uniapp",
+  "version": "1.0.0",
+  "keywords": ["vue3", "vite", "uniapp"],
+  "author": "moyi",
+  "license": "ISC",
+  "description": "moyi cli uniapp template",
+  "publishConfig": {
+    "access": "public"
+  }
+}

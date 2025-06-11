@@ -1,0 +1,11 @@
+{
+  "name": "@moyi.rk/template-nestjs",
+  "version": "1.0.1",
+  "keywords": ["nestjs", "typeorm", "prisma", "mysql", "redis", "swagger", "pgsql", "typescript"],
+  "author": "moyi",
+  "license": "ISC",
+  "description": "moyi cli NestJS typescript template",
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@moyi.rk/template-react19-ts",
+  "version": "1.0.1",
+  "keywords": ["react19", "cra", "typescript"],
+  "author": "moyi",
+  "license": "ISC",
+  "description": "moyi cli react typescript template",
+  "publishConfig": {
+    "access": "public"
+  }
+}

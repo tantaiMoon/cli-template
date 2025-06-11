@@ -1,0 +1,21 @@
+//scss 声明好的内容，可以在 js 中使用
+
+$sidebar-width: 210px;
+$nav-bar-height: 50px;
+$tags-view-height: 34px;
+
+
+// menu 颜色
+$menuText: #bfcbd9;
+$menuActiveText: #409eff; // 激活的颜色
+$menuBg: #304156; // 菜单背景色
+$theme: #409eff;
+
+:export {
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+  menuBg: $menuBg;
+  theme: $theme;
+  navbarHeight: $nav-bar-height;
+  tagsViewheight: $tags-view-height;
+}

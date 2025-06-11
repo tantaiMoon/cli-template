@@ -1,0 +1,11 @@
+{
+  "name": "@moyi.rk/template-react-vite",
+  "version": "1.0.1",
+  "keywords": ["react19", "vite"],
+  "author": "moyi",
+  "license": "ISC",
+  "description": "moyi cli react  vite template",
+  "publishConfig": {
+    "access": "public"
+  }
+}

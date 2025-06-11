@@ -1,0 +1,12 @@
+{
+  "email": "电子邮件",
+  "password": "密码",
+  "NOT_EMPTY": "{property} 不能为空",
+  "IS_STRING": "{property} 必须是字符串",
+  "IS_EXISTS": "{property} 已存在",
+  "INVALID_EMAIL": "电子邮件无效",
+  "INVALID_PHONE": "手机号无效",
+  "INVALID_BOOLEAN": "{property} 不是布尔值",
+  "MIN": "{property} 的值: \"{value}\" 至少需要为 {constraints.0}，否则 {message}",
+  "MAX": "{property} 的值: \"{value}\" 最大为 {constraints.0}，否则 {message}"
+}

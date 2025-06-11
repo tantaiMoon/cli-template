@@ -1,0 +1,205 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./client/postgresql"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int        @id @default(autoincrement())
+  username   String     @unique
+  password   String
+  age        Int?
+  name       String?
+  type       Int        @default(0)
+  expired    DateTime?
+  status     Int        @default(1)
+  gender     Int?       @default(2)
+  phone      String?
+  email      String?
+  avatar     String?
+  province   String?
+  country    String?
+  city       String?
+  unionid    String?
+  openid     String?
+  sessionKey String?    @map("session_key")
+  roles      UserRole[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  @@map("users")
+}
+
+model Role {
+  id              Int               @id @default(autoincrement())
+  name            String            @unique
+  code            String            @unique
+  description     String?
+  status          Int               @default(1)
+  users           UserRole[]
+  rolePermissions RolePermissions[]
+  rolePolicies    RolePolicy[]
+  roleMenus       RoleMenu[]
+  createdAt       DateTime          @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt       DateTime          @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  @@map("roles")
+}
+
+model UserRole {
+  userId Int  @map("user_id")
+  roleId Int  @map("role_id")
+  role   Role @relation(fields: [roleId], references: [id])
+  user   User @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  @@id([userId, roleId])
+  @@map("user_roles")
+}
+
+model Permission {
+  id                 Int                @id @default(autoincrement())
+  name               String             @unique // ControllerName + RouteName exp: [user:create]
+  // code               String             @unique
+  action             String // READ / CREATE / UPDATE / DELETE / MANAGE
+  description        String?
+  status             Int                @default(1)
+  rolePermissions    RolePermissions[]
+  permissionPolicies PermissionPolicy[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  @@map("permissions")
+}
+
+model RolePermissions {
+  roleId       Int        @map("role_id")
+  permissionId Int        @map("permission_id")
+  role         Role       @relation(fields: [roleId], references: [id])
+  permission   Permission @relation(fields: [permissionId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  @@id([roleId, permissionId])
+  @@map("role_permissions")
+}
+
+model Policy {
+  id                 Int                @id @default(autoincrement())
+  type               Int // 类型标识，0-json ， 1-mongo ， 2-function
+  effect             String // can cannot
+  action             String // CRUD + manage
+  subject            String // Class
+  description        String?
+  status             Int                @default(1)
+  fields             Json? // 字段列表
+  conditions         Json? // 条件
+  args               Json? // 参数列表
+  fields_data        String?
+  rolePolicies       RolePolicy[]
+  permissionPolicies PermissionPolicy[]
+
+  // base64 编码字段，type 、 effect 、 action 、 subject 、 fields 、 conditions 等字段组成对象进行 base64 编码
+  encode    String   @unique @db.VarChar(500)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  @@map("policies")
+}
+
+// role 与 policy 的对应关系， 角色永远的策略权限
+model RolePolicy {
+  roleId   Int    @map("role_id")
+  policyId Int    @map("policy_id")
+  role     Role   @relation(fields: [roleId], references: [id])
+  policy   Policy @relation(fields: [policyId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  @@id([roleId, policyId])
+  @@map("role_policies")
+}
+
+// permission 与  policy 的对应关系， 路由级别所需要的策略权限
+model PermissionPolicy {
+  permissionId Int        @map("permission_id")
+  policyId     Int        @map("policy_id")
+  permission   Permission @relation(fields: [permissionId], references: [id])
+  policy       Policy     @relation(fields: [policyId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  @@id([policyId, permissionId])
+  @@map("permission_policies")
+}
+
+model Menu {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique
+  path      String
+  label     String
+  component String?
+  redirect  String?
+  fullPath  String?
+  alias     String?
+  meta      MenuMeta?
+  status    Int        @default(1)
+  // self-relation
+  parentId  Int?       @map("parent_id")
+  parent    Menu?      @relation("menu_relation", fields: [parentId], references: [id], onDelete: Cascade)
+  children  Menu[]     @relation("menu_relation")
+  roleMenus RoleMenu[]
+  metaId    Int?       @unique @map("meta_id")
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  @@map("menus")
+}
+
+model MenuMeta {
+  id       Int     @id @default(autoincrement())
+  title    String?
+  layout   String?
+  order    Int?    @default(100)
+  hidden   Boolean @default(false)
+  disabled Boolean @default(false)
+  icon     String?
+  status   Int     @default(1)
+  menuId   Int     @unique @map("menu_id")
+  menu     Menu    @relation(fields: [menuId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  @@map("menu_meta")
+}
+
+model RoleMenu {
+  roleId    Int      @map("role_id")
+  menuId    Int      @map("menu_id")
+  role      Role     @relation(fields: [roleId], references: [id])
+  menu      Menu     @relation(fields: [menuId], references: [id])
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  @@id([roleId, menuId])
+  @@map("role_menus")
+}
