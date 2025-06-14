@@ -1,0 +1,18 @@
+@import './variables.module';
+
+:root {
+  --sidebar-width: #{$sidebar-width};
+  --navbar-height: #{$nav-bar-height};
+  --tags-view-height: #{$tags-view-height};
+  --menu-bg: #{$menuBg};
+}
+
+a {
+  text-decoration: none;
+
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@moyi.rk/template-react-h5",
+  "version": "1.0.1",
+  "keywords": ["react", "h5"],
+  "author": "moyi",
+  "license": "ISC",
+  "description": "moyi cli react h5 template",
+  "publishConfig": {
+    "access": "public"
+  }
+}

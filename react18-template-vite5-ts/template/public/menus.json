@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "首页",
+    "label": "首页",
+    "path": "/home",
+    "key": "/home",
+    "icon": "UserOutlined"
+  },
+  {
+    "id": 2,
+    "title": "系统管理",
+    "label": "系统管理",
+    "path": "/system",
+    "key": "/system",
+    "icon": "UserOutlined"
+  },
+  {
+    "id": 3,
+    "title": "用户管理",
+    "label": "用户管理",
+    "path": "/user",
+    "key": "/user",
+    "icon": "UserOutlined",
+    "parent_id": 2
+  },
+  {
+    "id": 4,
+    "title": "角色管理",
+    "label": "角色管理",
+    "path": "/role",
+    "key": "/role",
+    "icon": "UserOutlined",
+    "parent_id": 2
+  },
+  {
+    "id": 5,
+    "title": "个人中心",
+    "label": "个人中心",
+    "path": "/profile",
+    "key": "/profile",
+    "icon": "UserOutlined"
+  }
+]

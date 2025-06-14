@@ -1,0 +1,16 @@
+@import './variables.module';
+
+:root {
+  --sidebar-width: #{$sidebar-width};
+  --navbar-height: #{$nav-bar-height};
+  --tags-view-height: #{$tags-view-height};
+  --menu-bg: #{$menuBg};
+}
+
+#root {
+  @apply w-full h-full bg-gray-300;
+}
+
+html, body {
+  @apply p0 m0 w-full h-full;
+}

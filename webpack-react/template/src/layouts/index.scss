@@ -1,0 +1,8 @@
+.headers {
+  @apply pl-5px;
+  //height: calc(var(--navbar-height) + var(--tags-view-height));
+}
+
+.app-content {
+  @apply p-10px m-10px rd-5px bg-white;
+}

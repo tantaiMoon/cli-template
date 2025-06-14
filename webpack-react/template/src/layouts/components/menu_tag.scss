@@ -1,0 +1,7 @@
+.tags-view {
+  @apply h-[var(--tags-view-height)] lh-[var(--tags-view-height)] items-center pl-5px w-full overflow-x-auto overflow-y-hidden;
+
+  .active {
+    @apply bg-green-800 text-white;
+  }
+}

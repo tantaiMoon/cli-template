@@ -1,0 +1,11 @@
+{
+  "name": "@moyi.rk/template-react-webpack",
+  "version": "1.0.1",
+  "keywords": ["react", "webpack5"],
+  "author": "moyi",
+  "license": "ISC",
+  "description": "moyi cli react webpack5 template",
+  "publishConfig": {
+    "access": "public"
+  }
+}

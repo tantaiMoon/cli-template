@@ -1,0 +1,8 @@
+body,
+html {
+  @apply overflow-hidden w-full h-full;
+}
+
+* {
+  box-sizing: border-box;
+}

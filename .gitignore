@@ -13,7 +13,10 @@
 /coverage
 
 # production
-/build
+#/build
+#**/build
+/dist
+**/dist
 
 # misc
 .DS_Store

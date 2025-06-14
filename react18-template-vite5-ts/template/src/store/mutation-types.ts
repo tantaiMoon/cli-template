@@ -1,0 +1,8 @@
+export const SET_TOKEN = 'SET_TOKEN'
+export const SET_AUTH_BUTTON = 'SET_AUTH_BUTTON'
+export const SET_AUTH_ROUTER = 'SET_AUTH_ROUTER'
+export const SET_MENU = 'SET_MENU'
+export const SET_CURRENT_MENU = 'SET_CURRENT_MENU'
+export const SET_USER_INFO = 'SET_USER_INFO'
+export const SET_COLLAPSED = 'SET_COLLAPSED'
+export const SET_ROLES = 'SET_ROLES'
