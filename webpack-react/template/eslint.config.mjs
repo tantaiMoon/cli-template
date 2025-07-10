@@ -16,7 +16,15 @@ export default [
     files: ['**/*.{ts,tsx}'], // 校ts代码
     languageOptions: { parserOptions: { parser: tseslint.parser } },
     rules: {
-      '@typescript-eslint/no-explicit-any': 1
+      '@typescript-eslint/no-explicit-any': 1,
+      'max-lines': [
+        'error',
+        {
+          max: 400,
+          skipBlankLines: true,
+          skipComments: true
+        }
+      ]
     }
   },
   {

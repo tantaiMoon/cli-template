@@ -1,0 +1,5 @@
+### .gitignore template
+node_modules
+dist
+*.log
+coverage

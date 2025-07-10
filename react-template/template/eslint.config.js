@@ -23,6 +23,13 @@ export default [
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
-      ],
+      ], 'max-lines': [
+        'error',
+        {
+          max: 400,
+          skipBlankLines: true,
+          skipComments: true
+        }
+      ]
     },
   },]

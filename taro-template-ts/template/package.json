@@ -1,6 +1,6 @@
 {
   "name": "<%= data.name %>",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "private": true,
   "description": "react Taro typescript 小程序 移动端",
   "templateInfo": {
@@ -80,5 +80,3 @@
     "postcss": "^8.4.18"
   }
 }
-
-

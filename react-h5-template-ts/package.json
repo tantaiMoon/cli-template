@@ -1,7 +1,11 @@
 {
   "name": "@moyi.rk/template-react-h5-ts",
-  "version": "1.0.1",
-  "keywords": ["react", "h5", "typescript"],
+  "version": "0.0.3",
+  "keywords": [
+    "react",
+    "h5",
+    "typescript"
+  ],
   "author": "moyi",
   "license": "ISC",
   "description": "moyi cli react h5 typescript template",

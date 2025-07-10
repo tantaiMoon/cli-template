@@ -1,7 +1,9 @@
 {
   "name": "@moyi.rk/template-vue-h5",
-  "version": "1.0.1",
-  "keywords": ["vue3"],
+  "version": "0.0.3",
+  "keywords": [
+    "vue3"
+  ],
   "author": "moyi",
   "license": "ISC",
   "description": "vue3 template",

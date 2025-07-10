@@ -1,7 +1,10 @@
 {
   "name": "@moyi.rk/template-webpack-vue3",
-  "version": "1.0.1",
-  "keywords": ["webpack", "vue3"],
+  "version": "0.0.3",
+  "keywords": [
+    "webpack",
+    "vue3"
+  ],
   "author": "moyi",
   "license": "ISC",
   "description": "moyi cli webpack vue3 template",

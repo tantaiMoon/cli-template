@@ -1,7 +1,7 @@
 {
   "name": "react-h5-template",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -28,6 +28,7 @@
     "globals": "^16.0.0",
     "postcss-pxtorem": "^6.1.0",
     "sass": "^1.89.2",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-plugin-eslint2": "^5.0.3"
   }
 }

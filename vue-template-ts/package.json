@@ -1,7 +1,10 @@
 {
   "name": "@moyi.rk/template-vue3-ts",
-  "version": "1.1.1",
-  "keywords": ["vue3", "typescript"],
+  "version": "0.0.3",
+  "keywords": [
+    "vue3",
+    "typescript"
+  ],
   "author": "moyi",
   "license": "ISC",
   "description": "vue3 typescript template",

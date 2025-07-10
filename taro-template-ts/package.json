@@ -1,7 +1,12 @@
 {
   "name": "@moyi.rk/taro-template-ts",
-  "version": "1.0.0",
-  "keywords": ["react", "vite", "Taro", "typescript"],
+  "version": "0.0.3",
+  "keywords": [
+    "react",
+    "vite",
+    "Taro",
+    "typescript"
+  ],
   "author": "moyi",
   "license": "ISC",
   "description": "moyi cli Taro template",

@@ -1,7 +1,7 @@
 {
   "name": "<=% data.name %>",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -28,6 +28,7 @@
     "@vue/tsconfig": "^0.7.0",
     "eslint": "^9.11.1",
     "eslint-config-prettier": "^9.1.0",
+    "vite-plugin-eslint2": "^5.0.3",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-vue": "^10.2.0",
     "globals": "^15.9.0",

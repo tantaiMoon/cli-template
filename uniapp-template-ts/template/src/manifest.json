@@ -1,6 +1,6 @@
 {
-    "name" : "",
-    "appid" : "",
+    "name" : "CMS",
+    "appid" : "wx1ca8d7a18a0a7bd9",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -50,7 +50,7 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "",
+        "appid" : "wx1ca8d7a18a0a7bd9",
         "setting" : {
             "urlCheck" : false
         },

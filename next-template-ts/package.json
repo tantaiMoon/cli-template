@@ -1,7 +1,11 @@
 {
   "name": "@moyi.rk/template-next-ts",
-  "version": "1.0.1",
-  "keywords": ["react", "next", "typescript"],
+  "version": "0.0.3",
+  "keywords": [
+    "react",
+    "next",
+    "typescript"
+  ],
   "author": "moyi",
   "license": "ISC",
   "description": "moyi cli react next typescript template",

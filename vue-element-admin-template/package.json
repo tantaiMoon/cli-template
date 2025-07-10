@@ -1,7 +1,11 @@
 {
   "name": "@moyi.rk/template-vue-element-admin",
-  "version": "1.0.1",
-  "keywords": ["vue2", "elementUI", "admin"],
+  "version": "1.0.3",
+  "keywords": [
+    "vue2",
+    "elementUI",
+    "admin"
+  ],
   "author": "moyi",
   "license": "ISC",
   "description": "vue2 element admin template",

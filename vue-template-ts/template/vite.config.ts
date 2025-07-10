@@ -6,11 +6,13 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import ElementPlus from 'unplugin-element-plus/vite'
+import eslint from 'vite-plugin-eslint2'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
+    eslint(),
     UnocssVitePlugin(),
     // 手动导入 import ElementPlus from "unplugin-element-plus/vite"
     ElementPlus({}),

@@ -3,10 +3,11 @@ import react from '@vitejs/plugin-react'
 import * as path from 'path'
 import UnocssVitePlugin from 'unocss/vite'
 import postcssPlugin from 'postcss-preset-env'
+import eslint from 'vite-plugin-eslint2'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), UnocssVitePlugin()],
+  plugins: [react(), eslint(), UnocssVitePlugin()],
   resolve: {
     alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
     extensions: ['.tsx', '.ts', '.jsx', '.js', '.json']

@@ -1,7 +1,12 @@
 {
   "name": "@moyi.rk/template-react-vite-ts-swc",
-  "version": "1.0.0",
-  "keywords": ["react19", "vite", "typescript", "swc"],
+  "version": "0.0.3",
+  "keywords": [
+    "react19",
+    "vite",
+    "typescript",
+    "swc"
+  ],
   "author": "moyi",
   "license": "ISC",
   "description": "moyi cli react  vite typescript template",

@@ -15,7 +15,15 @@ export default [
     languageOptions: { parserOptions: { parser: tseslint.parser } },
     rules: {
       '@typescript-eslint/no-explicit-any': 0,
-      'vue/multi-word-component-names': 0
+      'vue/multi-word-component-names': 0,
+      'max-lines': [
+        'error',
+        {
+          max: 400,
+          skipBlankLines: true,
+          skipComments: true
+        }
+      ]
     }
   },
   {

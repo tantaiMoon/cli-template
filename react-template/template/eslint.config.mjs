@@ -40,7 +40,14 @@ export default [
     },
     rules: {
       '@typescript-eslint/no-unused-vars': 'error',
-      '@typescript-eslint/explicit-function-return-type': 'off'
+      '@typescript-eslint/explicit-function-return-type': 'off', 'max-lines': [
+        'error',
+        {
+          max: 400,
+          skipBlankLines: true,
+          skipComments: true
+        }
+      ]
     }
   },
 
@@ -58,7 +65,15 @@ export default [
       'vue/block-lang': ['error', { script: { lang: 'ts' } }],
       'vue/multi-word-component-names': 'off',
       'vue/no-multiple-template-root': 'off',
-      '@typescript-eslint/no-explicit-any': 'off'
+      '@typescript-eslint/no-explicit-any': 'off',
+      'max-lines': [
+        'error',
+        {
+          max: 400,
+          skipBlankLines: true,
+          skipComments: true
+        }
+      ]
     }
   },
 
@@ -74,6 +89,14 @@ export default [
         {
           ...(await prettier.resolveConfig(process.cwd())), // 加载项目根目录的 Prettier 配置
           endOfLine: 'lf' // 可选：自动处理换行符
+        }
+      ],
+      'max-lines': [
+        'error',
+        {
+          max: 400,
+          skipBlankLines: true,
+          skipComments: true
         }
       ]
     }

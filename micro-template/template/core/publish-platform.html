@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!--网页作者-->
+  <meta name="author" content="BIN,tantaiqiuyue@gmail.com">
+  <!-- 优先使用 IE 最新版本和 Chrome -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <!-- 搜索引擎抓取 -->
+  <meta name="robots" content="index,follow"/>
+  <!-- 为移动设备添加 viewport -->
+  <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <!-- `width=device-width` 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边 http://bigc.at/ios-webapp-viewport-meta.orz -->
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <title>发布平台</title>
+  <style>
+    body {
+      padding-left: 60px;
+    }
+    .container-item {
+      display: flex;
+      align-items: center;
+      height: 40px;
+      margin-bottom: 15px;
+      user-select: none;
+    }
+
+    .container-item__name {
+      width: 100px;
+      height: 40px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      line-height: 40px;
+
+    }
+    .container-item__btn {
+      display: flex;
+      align-items:  center;
+      justify-content:  center;
+      width: 50px;
+      height: 20px;
+      border-radius: 2px;
+      font-size: 12px;
+      cursor: pointer;
+      background: #0091ff;
+      color:  white;
+    }
+  </style>
+  <script src="https://cdn.bootcdn.cn/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<script>
+  window.onload = function() {
+    const dirList = [
+      'main',
+      'react15',
+      'react16',
+      'vue2',
+      'vue3'
+    ]
+
+    let html = ''
+    for (let i = 0; i < dirList.length; i++) {
+      let item = dirList[i]
+      html += `
+        <div class="container-item">
+        <div class="container-item__name">${item}</div>
+        <div class="container-item__btn" id="${item}">发布</div>
+</div>
+      `
+    }
+
+    container.innerHTML = html
+
+    container.onclick = function(evt) {
+      if (evt.target.className !== 'container-item__btn') {
+        return
+      }
+      // 请求接口
+      $.get(`?name=${evt.target.id}`,)
+    }
+  }
+</script>
+</body>
+</html>
