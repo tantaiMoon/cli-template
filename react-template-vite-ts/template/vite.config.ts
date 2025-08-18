@@ -5,9 +5,28 @@ import UnocssVitePlugin from 'unocss/vite'
 import postcssPlugin from 'postcss-preset-env'
 import eslint from 'vite-plugin-eslint2'
 
+const isProd = true
+// const isProd = process.env.NODE_ENV === 'production'
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), eslint(), UnocssVitePlugin()],
+  plugins: [
+    react(),
+    eslint({
+      // 只在构建时检查，开发时不检查
+      lintOnStart: isProd,
+      // eslint 可执行文件
+      eslintPath: 'eslint',
+      // 开发模式显示错误覆盖
+      emitError: isProd,
+      include: ['src/**/*.{js,jsx,ts,tsx}'],
+      exclude: ['node_modules', 'dist', 'public', '**/*.min.js', '**/*.css'],
+      // 是否显示警告
+      emitWarning: false,
+      // 不检查缓存
+      cache: false
+    }),
+    UnocssVitePlugin()
+  ],
   resolve: {
     alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
     extensions: ['.tsx', '.ts', '.jsx', '.js', '.json']
@@ -36,6 +55,11 @@ export default defineConfig({
         // target: 'http://localhost:41000',
         changeOrigin: true,
         rewrite: (url) => url.replace(/^\/dev-api/, 'api')
+      },
+      '^/api': {
+        target: 'http://49.233.13.91:41000',
+        // target: 'http://localhost:41000',
+        changeOrigin: true
       }
     }
   }

@@ -28,10 +28,11 @@ export const AppRoutes = () => {
         return
       }
       console.log(result)
-      dispatch(setRoles(result!.roles))
-      dispatch(setPermissions(result!.permissions))
-      dispatch(setMenuList(result!.menus))
       setLoading(false)
+      dispatch(setRoles(result?.roles ?? [{ id: 1, name: 'admin' }]))
+      dispatch(setPermissions(result?.permissions ?? []))
+      dispatch(setMenuList([...asyncRoutes]))
+      // dispatch(setMenuList(result?.menus ?? []))
     }
 
     if (roles?.length && menuList?.length) {

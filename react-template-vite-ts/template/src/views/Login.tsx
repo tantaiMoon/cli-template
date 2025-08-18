@@ -34,7 +34,7 @@ export const Login = () => {
 
   const login: FormProps<FieldType>['onFinish'] = (values: FieldType) => {
     console.log(values)
-    dispatch(userLogin(values)).then((res) => {
+    void dispatch(userLogin(values)).then((res) => {
       console.log('login', res)
       if (res.payload?.token?.access_token) {
         navigate('/home')

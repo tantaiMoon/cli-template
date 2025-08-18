@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false)
   const collapsed = useAppSelector((state) => state.system.sidebar)
   const componentSize = useAppSelector((state) => state.system.componentSize)
-  const activeMenu = useAppSelector((state) => state.system.activeMenu)
+  // const activeMenu = useAppSelector((state) => state.system.activeMenu)
   const theme = useAppSelector((state) => state.system.theme)
   const dispatch = useAppDispatch()
   const onClose = () => {

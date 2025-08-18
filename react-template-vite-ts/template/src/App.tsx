@@ -6,15 +6,15 @@ import { BrowserRouter } from 'react-router-dom'
 import { ConfigProvider } from 'antd'
 import { useAppSelector } from '@/hooks/useAppStore.ts'
 import { useGenerateTheme } from '@/hooks/useGenerateTheme.ts'
-import { filterAsyncRoutes } from '@/utils/generateTree.ts'
-import { asyncRoutes } from '@/routers/routes.tsx'
+// import { filterAsyncRoutes } from '@/utils/generateTree.ts'
+// import { asyncRoutes } from '@/routers/routes.tsx'
 
 function App() {
   useGenerateTheme()
   const lang = navigator.language
   const componentSize = useAppSelector((state) => state.system.componentSize)
   const theme = useAppSelector((state) => state.system.theme)
-  const menuList = useAppSelector((state) => state.global.menuList)
+  // const menuList = useAppSelector((state) => state.global.menuList)
   const FallbackComponent = ({
     error,
     resetErrorBoundary
