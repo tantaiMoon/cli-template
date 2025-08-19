@@ -1,0 +1,16 @@
+{
+  "name": "@moyi.rk/template-react-mobx-vite-ts",
+  "version": "0.0.1",
+  "keywords": [
+    "react19",
+    "vite",
+    "mobx",
+    "typescript"
+  ],
+  "author": "moyi",
+  "license": "ISC",
+  "description": "moyi cli react  vite typescript template",
+  "publishConfig": {
+    "access": "public"
+  }
+}

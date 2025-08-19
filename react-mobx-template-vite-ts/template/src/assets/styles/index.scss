@@ -1,0 +1,12 @@
+@use './variables.module' as *;
+
+:root {
+  --sidebar-width: #{$sidebar-width};
+  --navbar-height: #{$nav-bar-height};
+  --tags-view-height: #{$tags-view-height};
+  --menu-bg: #{$menuBg};
+}
+
+a {
+  @apply decoration-none active:(decoration-none) hover:(decoration-none);
+}

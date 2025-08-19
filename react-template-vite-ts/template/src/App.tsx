@@ -2,7 +2,7 @@ import { ErrorBoundary } from 'react-error-boundary'
 import { AppRoutes } from '@/routers'
 import zhCn from 'antd/locale/zh_CN'
 import en from 'antd/locale/en_US'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, type BrowserRouterProps } from 'react-router-dom'
 import { ConfigProvider } from 'antd'
 import { useAppSelector } from '@/hooks/useAppStore.ts'
 import { useGenerateTheme } from '@/hooks/useGenerateTheme.ts'
@@ -60,7 +60,7 @@ function App() {
           future={{
             v7_startTransition: true,
             v7_relativeSplatPath: true
-          }}
+          } as BrowserRouterProps['future']}
         >
           <AppRoutes />
         </BrowserRouter>
